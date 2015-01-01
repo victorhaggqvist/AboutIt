@@ -22,9 +22,10 @@ new AboutIt(this).app("My App")
 
 The code for these samples are all in the sample app [here](aboutit-sample/src/main/java/com/snilius/aboutit/sample/MainActivity.java).
 
-|![sample](img/img1.png)|![sample](img/img2.png)|
-|--|--|
-|![sample](img/img3.png)|![sample](img/img4.png)|
+<img src="img/img1.png" alt="screenshot" width="300px" height="auto" />
+<img src="img/img2.png" alt="screenshot" width="300px" height="auto" />
+<img src="img/img3.png" alt="screenshot" width="300px" height="auto" />
+<img src="img/img4.png" alt="screenshot" width="300px" height="auto" />
 
 #License
 
