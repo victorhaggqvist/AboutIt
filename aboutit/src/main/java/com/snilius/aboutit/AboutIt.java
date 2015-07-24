@@ -60,12 +60,11 @@ public class AboutIt {
         TextView out = (TextView) activity.findViewById(about_text);
         out.setAutoLinkMask(Linkify.WEB_URLS);
 
-        releaseName = "-"+(releaseName != null?releaseName:(debug?"debug":""));
         endYear = endYear();
 
         StringBuilder sb = new StringBuilder();
         if (appName != null)
-            sb.append(appName+" v"+versionName+" ("+versionCode+releaseName+")\n");
+            sb.append(appName+" v"+getVersionString()+"\n");
 
         if (copyright != null) {
             sb.append("Copyright (c) ");
@@ -90,6 +89,17 @@ public class AboutIt {
         }
 
         out.setText(sb.toString());
+    }
+
+    /**
+     * Get a baked version string.
+     * Version string is build from build info and release name
+     * It will look something like '1.42 (42-debug)'
+     * @return baked version string
+     */
+    public String getVersionString() {
+        releaseName = "-"+(releaseName != null?releaseName:(debug?"debug":""));
+        return versionName+" ("+versionCode+releaseName+")";
     }
 
     /**
