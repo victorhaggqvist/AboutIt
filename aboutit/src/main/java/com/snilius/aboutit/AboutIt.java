@@ -44,7 +44,7 @@ public class AboutIt {
 
     /**
      * Create a page generator
-     * @param activity The aboutpage activity
+     * @param activity The about page activity
      */
     public AboutIt(Activity activity) {
 
@@ -76,7 +76,7 @@ public class AboutIt {
         if (description != null)
             sb.append(description+"\n\n");
 
-        // Sort library list alphabeticly by name
+        // Sort library list alphabetically by name
         Collections.sort(libs, new Comparator<Lib>() {
             @Override
             public int compare(Lib lhs, Lib rhs) {
@@ -103,7 +103,7 @@ public class AboutIt {
     }
 
     /**
-     * Demiter what endyear to show
+     * Determine what end year to show
      * @return year to show
      */
     private int endYear() {
@@ -121,11 +121,11 @@ public class AboutIt {
 
     /**
      * Get String by id
-     * @param stringid String id
+     * @param stringId String id
      * @return String
      */
-    private String s(int stringid) {
-        return activity.getString(stringid);
+    private String s(int stringId) {
+        return activity.getString(stringId);
     }
 
     /**
@@ -151,8 +151,8 @@ public class AboutIt {
      * Add a library to the list
      * @param name      Name of Library
      * @param author    Author of library
-     * @param license   Library licanse, defined by L
-     * @param url       Url to or otherwise referense to library
+     * @param license   Library license, defined by L
+     * @param url       Url to or otherwise reference to library
      * @see L
      */
     public AboutIt libLicense(String name, String author, L license, String url) {
@@ -161,16 +161,16 @@ public class AboutIt {
     }
 
     /**
-     * Appname to display
-     * @param stringresource A string resource id
+     * App name to display
+     * @param stringResource A string resource id
      */
-    public AboutIt app(int stringresource) {
-        this.appName = s(stringresource);
+    public AboutIt app(int stringResource) {
+        this.appName = s(stringResource);
         return this;
     }
 
     /**
-     * Appname to display
+     * App name to display
      * @see #app(int)
      */
     public AboutIt app(String appName) {
@@ -188,7 +188,7 @@ public class AboutIt {
     }
 
     /**
-     * App build info. To be used in conjunktion with the BuildConfig class
+     * App build info. To be used in conjunction with the BuildConfig class
      * {@code .buildInfo(BuildConfig.DEBUG, BuildConfig.VERSION_CODE, BuildConfig.VERSION_NAME)}
      *
      * @param debug         If is debug build
@@ -204,10 +204,10 @@ public class AboutIt {
 
     /**
      * A longer description
-     * @param stringresource A string resource id
+     * @param stringResource A string resource id
      */
-    public AboutIt description(int stringresource) {
-        description = s(stringresource);
+    public AboutIt description(int stringResource) {
+        description = s(stringResource);
         return this;
     }
 
