@@ -1,9 +1,13 @@
-AboutIt
-=======
+# AboutIt
 A About-page creator
 
-#Sample
-A "complete" sample
+## Install
+From Maven Central [![](https://img.shields.io/maven-central/v/com.snilius.aboutit/aboutit.svg)](http://mvnrepository.com/artifact/com.snilius.aboutit/aboutit)
+
+    compile 'com.snilius.aboutit:aboutit:VERSION@aar'
+
+## Sample
+A complete sample
 ```java
 new AboutIt(this).app(R.string.app_name)
     .buildInfo(BuildConfig.DEBUG, BuildConfig.VERSION_CODE, BuildConfig.VERSION_NAME)
@@ -12,7 +16,7 @@ new AboutIt(this).app(R.string.app_name)
     .toTextView(R.id.about_text);
 ```
 
-Just the dymanic version name and copyright year display
+Just the dynamic version name and copyright year display
 ```java
 new AboutIt(this).app("My App")
         .buildInfo(BuildConfig.DEBUG, BuildConfig.VERSION_CODE, BuildConfig.VERSION_NAME)
@@ -27,7 +31,7 @@ The code for these samples are all in the sample app [here](aboutit-sample/src/m
 <img src="img/img3.png" alt="screenshot" width="300px" height="auto" />
 <img src="img/img4.png" alt="screenshot" width="300px" height="auto" />
 
-#License
+## License
 
     Copyright 2014-2015 Victor Häggqvist
 
