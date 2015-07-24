@@ -13,7 +13,6 @@ import android.widget.Spinner;
 import com.snilius.aboutit.AboutIt;
 import com.snilius.aboutit.L;
 
-
 public class MainActivity extends ActionBarActivity implements AdapterView.OnItemSelectedListener {
 
     @Override
