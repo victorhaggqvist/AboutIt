@@ -9,11 +9,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.snilius.aboutit.AboutIt;
 import com.snilius.aboutit.L;
 
 public class MainActivity extends ActionBarActivity implements AdapterView.OnItemSelectedListener {
+
+    private TextView mSampleText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +29,8 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
 
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
         spinner.setOnItemSelectedListener(this);
+
+        mSampleText = (TextView) findViewById(R.id.sample_text);
     }
 
 
@@ -79,6 +84,11 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
                         .release("beta")
                         .toTextView(R.id.sample_text);
                 break;
+            case 4: // version string
+                String versionString = new AboutIt(this)
+                        .buildInfo(BuildConfig.DEBUG, BuildConfig.VERSION_CODE, BuildConfig.VERSION_NAME)
+                        .getVersionString();
+                mSampleText.setText(versionString);
         }
     }
 

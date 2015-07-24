@@ -15,6 +15,7 @@
         <item>Dynamic version</item>
         <item>Library list</item>
         <item>Custom version</item>
+        <item>Version string</item>
     </array>
 
 </resources>
