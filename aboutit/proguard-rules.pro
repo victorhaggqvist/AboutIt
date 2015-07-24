@@ -16,3 +16,7 @@
 #   public *;
 #}
 -dontshrink
+
+-keep class com.snilius.aboutit {
+   public *;
+}
