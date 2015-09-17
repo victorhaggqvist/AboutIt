@@ -5,8 +5,8 @@ package com.snilius.aboutit;
  * @author Victor Häggqvist
  * @since 12/29/14
  */
-public enum L {
     AP2("Apache License, Version 2.0"), MIT("MIT"), GPL2("GPLv2"), GPL3("GPLv3");
+public enum L implements LicenseBase {
 
     private String mDisplayname;
 
@@ -15,10 +15,10 @@ public enum L {
     }
 
     /**
-     * Get diaplayname for license
-     * @return displaname
+     * {@inheritDoc}
      */
     public String display() {
         return mDisplayname;
     }
+
 }

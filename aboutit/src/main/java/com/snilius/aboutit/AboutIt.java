@@ -161,6 +161,15 @@ public class AboutIt {
     }
 
     /**
+     * Add a library to the list
+     * @param library A library build with LibBuilder
+     */
+    public AboutIt libLicense(Lib library) {
+        libs.add(library);
+        return this;
+    }
+
+    /**
      * App name to display
      * @param stringResource A string resource id
      */
@@ -224,14 +233,14 @@ public class AboutIt {
     /**
      * Holder for libraries
      */
-    private class Lib {
+    static class Lib {
 
         final String name;
         final String author;
-        final L license;
+        final LicenseBase license;
         final String url;
 
-        public Lib(String name, String author, L license, String url) {
+        public Lib(String name, String author, LicenseBase license, String url) {
 
             this.name = name;
             this.author = author;
