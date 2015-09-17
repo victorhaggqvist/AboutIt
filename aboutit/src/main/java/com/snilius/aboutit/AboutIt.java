@@ -85,7 +85,7 @@ public class AboutIt {
         });
 
         for(Lib l:libs){
-            sb.append(l.name + " by " + l.author + " under " + l.license.display() + ", " + l.url + "\n");
+            sb.append(l.byLine() + "\n");
         }
 
         out.setText(sb.toString());
@@ -246,6 +246,10 @@ public class AboutIt {
             this.author = author;
             this.license = license;
             this.url = url;
+        }
+
+        String byLine() {
+            return name + " by " + author + " under " + license.display() + ", " + url;
         }
     }
 }
