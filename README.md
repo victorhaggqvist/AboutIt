@@ -6,6 +6,11 @@ From Maven Central [![](https://img.shields.io/maven-central/v/com.snilius.about
 
     compile 'com.snilius.aboutit:aboutit:VERSION@aar'
 
+Optionally one may also add the meta module to get some common library presets for free, like Retrofit, Gson, OkHttp, Glide and some more.
+Current version: [![](https://img.shields.io/maven-central/v/com.snilius.aboutit/aboutit-meta.svg)](http://mvnrepository.com/artifact/com.snilius.aboutit/aboutit-meta)
+
+    compile 'com.snilius.aboutit:aboutit-meta:VERSION@aar'
+
 ## Sample
 A complete sample
 ```java
@@ -13,6 +18,7 @@ new AboutIt(this).app(R.string.app_name)
     .buildInfo(BuildConfig.DEBUG, BuildConfig.VERSION_CODE, BuildConfig.VERSION_NAME)
     .copyright("Example Business")
     .libLicense("AboutIt", "Victor Häggqvist", L.AP2, "https://github.com/victorhaggqvist/aboutit")
+    .libLicense(new LibTimber()) // requires aboutit-meta module
     .toTextView(R.id.about_text);
 ```
 
