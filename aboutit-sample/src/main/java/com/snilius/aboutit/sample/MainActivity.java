@@ -13,6 +13,8 @@ import android.widget.TextView;
 
 import com.snilius.aboutit.AboutIt;
 import com.snilius.aboutit.L;
+import com.snilius.aboutit.LibBuilder;
+import com.snilius.aboutit.meta.LibRetrofit;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -89,6 +91,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                         .buildInfo(BuildConfig.DEBUG, BuildConfig.VERSION_CODE, BuildConfig.VERSION_NAME)
                         .getVersionString();
                 mSampleText.setText(versionString);
+                break;
+            case 5:
+                new AboutIt(this)
+                        .libLicense(new LibBuilder().name("").author("").license(L.GPL2).url("").build())
+                        .libLicense(new LibRetrofit());
         }
     }
 
