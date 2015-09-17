@@ -1,1 +1,1 @@
-include ':aboutit-sample', ':aboutit'
+include ':aboutit-sample', ':aboutit', ':aboutit-meta'
