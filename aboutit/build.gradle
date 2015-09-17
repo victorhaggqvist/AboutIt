@@ -82,3 +82,32 @@ uploadArchives {
         }
     }
 }
+
+android.libraryVariants.all { variant ->
+    task("${variant.name}Javadoc", type: Javadoc, dependsOn: "assemble${variant.name.capitalize()}") {
+        source = variant.javaCompile.source
+
+        title = "AboutIt"
+
+        options.links("http://docs.oracle.com/javase/7/docs/api/");
+        options.linksOffline("http://d.android.com/reference","${android.sdkDirectory}/docs/reference");
+
+        // First add all of your dependencies to the classpath, then add the android jars
+        classpath += files(variant.javaCompile.classpath.files)
+        classpath += files(android.getBootClasspath())
+
+        // We're excluding these generated files
+        exclude '**/BuildConfig.java'
+        exclude '**/R.java'
+    }
+}
+
+android.libraryVariants.all { variant ->
+    task("${variant.name}JavadocJar", type: Jar, dependsOn: "${variant.name}Javadoc") {
+        classifier = 'javadoc'
+        from tasks["${variant.name}Javadoc"].destinationDir
+    }
+
+    // Add the Javadoc jar to the project's artifacts. This will allow us to upload it easily later
+    project.artifacts.add("archives", tasks["${variant.name}JavadocJar"]);
+}
