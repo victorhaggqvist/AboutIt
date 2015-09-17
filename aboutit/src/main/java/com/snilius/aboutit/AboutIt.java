@@ -1,6 +1,8 @@
 package com.snilius.aboutit;
 
 import android.app.Activity;
+import android.support.annotation.IdRes;
+import android.support.annotation.StringRes;
 import android.text.util.Linkify;
 import android.widget.TextView;
 
@@ -56,7 +58,7 @@ public class AboutIt {
      * @param about_text Resource it of destination TextView
      */
     @SuppressWarnings("StringConcatenationInsideStringBufferAppend")
-    public void toTextView(int about_text) {
+    public void toTextView(@IdRes int about_text) {
         TextView out = (TextView) activity.findViewById(about_text);
         out.setAutoLinkMask(Linkify.WEB_URLS);
 
@@ -124,7 +126,7 @@ public class AboutIt {
      * @param stringId String id
      * @return String
      */
-    private String s(int stringId) {
+    private String s(@StringRes int stringId) {
         return activity.getString(stringId);
     }
 
@@ -173,7 +175,7 @@ public class AboutIt {
      * App name to display
      * @param stringResource A string resource id
      */
-    public AboutIt app(int stringResource) {
+    public AboutIt app(@StringRes int stringResource) {
         this.appName = s(stringResource);
         return this;
     }
@@ -215,7 +217,7 @@ public class AboutIt {
      * A longer description
      * @param stringResource A string resource id
      */
-    public AboutIt description(int stringResource) {
+    public AboutIt description(@StringRes int stringResource) {
         description = s(stringResource);
         return this;
     }
