@@ -95,6 +95,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             case 5:
                 new AboutIt(this)
                         .libLicense(new LibBuilder().name("").author("").license(L.GPL2).url("").build())
+                        .libLicense(new LibBuilder().name("Awesome Lib").author("Nucleus").license(L.BSD).build())
                         .libLicense(new LibRetrofit());
         }
     }
