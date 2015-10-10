@@ -100,8 +100,11 @@ public class AboutIt {
      * @return baked version string
      */
     public String getVersionString() {
-        releaseName = "-"+(releaseName != null?releaseName:(debug?"debug":""));
-        return versionName+" ("+versionCode+releaseName+")";
+        releaseName = "-" + (releaseName != null ? releaseName : (debug?"debug":""));
+        if (releaseName.equals("-"))
+            return versionName+" ("+versionCode+")";
+        else
+            return versionName+" ("+versionCode+releaseName+")";
     }
 
     /**
