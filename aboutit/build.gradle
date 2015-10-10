@@ -5,7 +5,7 @@ apply plugin: 'nexus-workflow'
 
 group = "com.snilius.aboutit"
 archivesBaseName = "aboutit"
-version = "1.2.0"
+version = "1.2.1"
 
 android {
     compileSdkVersion 23
@@ -14,9 +14,10 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 23
-        versionCode 6
+        versionCode 7
         versionName version
     }
+
     buildTypes {
         release {
             minifyEnabled false
