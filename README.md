@@ -3,14 +3,14 @@ A About-page creator
 
 ## Install
 From Maven Central [![](https://img.shields.io/maven-central/v/com.snilius.aboutit/aboutit.svg)](http://mvnrepository.com/artifact/com.snilius.aboutit/aboutit)
-
-    compile 'com.snilius.aboutit:aboutit:VERSION@aar'
-
+```groovy
+compile 'com.snilius.aboutit:aboutit:VERSION@aar'
+```
 Optionally one may also add the meta module to get some common library presets for free, like Retrofit, Gson, OkHttp, Glide and some more.
 Current version: [![](https://img.shields.io/maven-central/v/com.snilius.aboutit/aboutit-meta.svg)](http://mvnrepository.com/artifact/com.snilius.aboutit/aboutit-meta)
-
-    compile 'com.snilius.aboutit:aboutit-meta:VERSION@aar'
-
+```groovy
+compile 'com.snilius.aboutit:aboutit-meta:VERSION@aar'
+```
 ## Sample
 A complete sample
 ```java
@@ -31,15 +31,15 @@ new AboutIt(this).app("My App")
 ```
 
 The code for these samples are all in the sample app [here](aboutit-sample/src/main/java/com/snilius/aboutit/sample/MainActivity.java).
-
+```xml
 <img src="img/img1.png" alt="screenshot" width="300px" height="auto" />
 <img src="img/img2.png" alt="screenshot" width="300px" height="auto" />
 <img src="img/img3.png" alt="screenshot" width="300px" height="auto" />
 <img src="img/img4.png" alt="screenshot" width="300px" height="auto" />
-
+```
 ## License
 
-    Copyright 2014-2015 Victor Häggqvist
+    Copyright 2014-2016 Victor Häggqvist
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
