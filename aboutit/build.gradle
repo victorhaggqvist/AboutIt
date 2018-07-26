@@ -1,21 +1,13 @@
 apply plugin: 'com.android.library'
-apply plugin: 'maven'
-apply plugin: 'signing'
-apply plugin: 'nexus-workflow'
-
-group = "com.snilius.aboutit"
-archivesBaseName = "aboutit"
-version = "1.2.1"
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion '23.0.1'
+    compileSdkVersion 27
+    buildToolsVersion '27.0.03'
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 23
+        targetSdkVersion 27
         versionCode 7
-        versionName version
     }
 
     buildTypes {
@@ -26,7 +18,7 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:23.0.1'
+    implementation 'com.android.support:appcompat-v7:27.1.1'
 }
 
 configurations {
@@ -35,80 +27,4 @@ configurations {
     }
 }
 
-signing {
-    sign configurations.archives
-}
-
-uploadArchives {
-    repositories {
-        mavenDeployer {
-            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
-
-            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
-                authentication(userName: ossrhUsername, password: ossrhPassword)
-            }
-
-            snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
-                authentication(userName: ossrhUsername, password: ossrhPassword)
-            }
-
-            pom.project {
-                name 'AboutIt'
-                packaging 'jar'
-                // optionally artifactId can be defined here
-                description 'A About-page creator'
-                url 'https://github.com/victorhaggqvist/AboutIt'
-
-                scm {
-                    connection 'scm:git:https://github.com/victorhaggqvist/AboutIt.git'
-                    developerConnection 'scm:git:https://github.com/victorhaggqvist/AboutIt.git'
-                    url 'https://github.com/victorhaggqvist/AboutIt'
-                }
-
-                licenses {
-                    license {
-                        name 'The Apache License, Version 2.0'
-                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                    }
-                }
-
-                developers {
-                    developer {
-                        id 'atriix'
-                        name 'Victor Häggqvist'
-                        email 'victor@snilius.com'
-                    }
-                }
-            }
-        }
-    }
-}
-
-android.libraryVariants.all { variant ->
-    task("${variant.name}Javadoc", type: Javadoc, dependsOn: "assemble${variant.name.capitalize()}") {
-        source = variant.javaCompile.source
-
-        title = "AboutIt"
-
-        options.links("http://docs.oracle.com/javase/7/docs/api/");
-        options.linksOffline("http://d.android.com/reference","${android.sdkDirectory}/docs/reference");
-
-        // First add all of your dependencies to the classpath, then add the android jars
-        classpath += files(variant.javaCompile.classpath.files)
-        classpath += files(android.getBootClasspath())
-
-        // We're excluding these generated files
-        exclude '**/BuildConfig.java'
-        exclude '**/R.java'
-    }
-}
-
-android.libraryVariants.all { variant ->
-    task("${variant.name}JavadocJar", type: Jar, dependsOn: "${variant.name}Javadoc") {
-        classifier = 'javadoc'
-        from tasks["${variant.name}Javadoc"].destinationDir
-    }
-
-    // Add the Javadoc jar to the project's artifacts. This will allow us to upload it easily later
-    project.artifacts.add("archives", tasks["${variant.name}JavadocJar"]);
-}
+apply from: rootProject.file('gradle/gradle-mvn-push.gradle')
