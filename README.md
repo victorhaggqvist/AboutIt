@@ -4,12 +4,12 @@ A About-page creator
 ## Install
 From Maven Central [![](https://img.shields.io/maven-central/v/com.snilius.aboutit/aboutit.svg)](http://mvnrepository.com/artifact/com.snilius.aboutit/aboutit)
 
-    compile 'com.snilius.aboutit:aboutit:VERSION@aar'
+    implementation 'com.snilius.aboutit:aboutit:1.2.2'
 
 Optionally one may also add the meta module to get some common library presets for free, like Retrofit, Gson, OkHttp, Glide and some more.
 Current version: [![](https://img.shields.io/maven-central/v/com.snilius.aboutit/aboutit-meta.svg)](http://mvnrepository.com/artifact/com.snilius.aboutit/aboutit-meta)
 
-    compile 'com.snilius.aboutit:aboutit-meta:VERSION@aar'
+    implementation 'com.snilius.aboutit:aboutit-meta:1.0.1'
 
 ## Sample
 A complete sample
@@ -39,7 +39,7 @@ The code for these samples are all in the sample app [here](aboutit-sample/src/m
 
 ## License
 
-    Copyright 2014-2015 Victor Häggqvist
+    Copyright 2014-2018 Victor Häggqvist
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
